@@ -22,3 +22,28 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+# with sys.args, the file name is the arg at [0], so there is technically one arg
+# .textCalendar
+cal = calendar
+cal.setfirstweekday(calendar.SUNDAY)
+d = datetime.now()
+
+# if len(sys.argv) == 1:
+#     month = d.month
+#     currentYear = d.year
+#     print(cal.monthcalendar(currentYear, month), f"Month and year: {month}, {currentYear}")
+if len(sys.argv) == 1:
+    month = d.month
+    currentYear = d.year
+    print(cal.month(currentYear, month))
+
+elif len(sys.argv) == 2:
+    month = int(sys.argv[1])
+    currentYear = d.year
+    print(cal.month(currentYear, month))
+
+elif len(sys.argv) == 3:
+    month = int(sys.argv[1])
+    currentYear = int(sys.argv[2])
+    print(cal.month(currentYear, month))
